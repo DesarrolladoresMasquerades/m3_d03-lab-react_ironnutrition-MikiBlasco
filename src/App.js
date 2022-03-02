@@ -11,9 +11,11 @@ const foodsCopy = [...foods]
 function App() {
 
   const [items, setItems] = useState (foodsCopy)
+  const [itemsDB, setItemsDB = useState (foodsCopy)]
 
   function addFood(newItem){
-    setItems([...items, newItem])   
+    setItems([...items, newItem])  
+    setItemsDB([...itemsDB, newItem]) 
   }
 
   function searchFood(value){
@@ -24,12 +26,21 @@ function App() {
        console.log(searchResult)
   }
 
+  function deletedFood(item){
+     let newArray = items.filter((el)=>{
+       return el !== item
+     })
+   
+    setItems(newArray)
+    console.log(newArray);
+  }
+
   return (
     <div className="App">
 
     <Search searchFood={searchFood} />
     <AddFoodForm addFood={addFood}/>
-    {items.map((el)=> (<FoodBox  food={el} />) )}
+    {items.map((el)=> (<FoodBox  food={el} deletedFood={deletedFood} />) )}
 
     </div>
   );
