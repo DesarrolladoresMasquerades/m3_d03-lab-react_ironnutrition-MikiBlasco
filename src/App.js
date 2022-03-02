@@ -11,7 +11,7 @@ const foodsCopy = [...foods]
 function App() {
 
   const [items, setItems] = useState (foodsCopy)
-  const [itemsDB, setItemsDB = useState (foodsCopy)]
+  const [itemsDB, setItemsDB] = useState (foodsCopy)
 
   function addFood(newItem){
     setItems([...items, newItem])  
