@@ -44,7 +44,7 @@ function AddFoodForm(props){
   
           <label>Servings:</label>
           <input type="text" name="servings" checked={formFood.servings} onChange={handleDataChange} />
-          <button type="submit">Add a Movie</button>
+          <button type="submit">Add a Food</button>
         </form>
 
 
