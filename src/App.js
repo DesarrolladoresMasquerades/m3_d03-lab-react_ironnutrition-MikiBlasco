@@ -19,7 +19,7 @@ function App() {
   }
 
   function searchFood(value){
-     let searchResult = items.filter((el)=>{
+     let searchResult = itemsDB.filter((el)=>{
        return el.name.toLowerCase().includes(value)})
 
        setItems(searchResult)
@@ -32,6 +32,7 @@ function App() {
      })
    
     setItems(newArray)
+    setItemsDB(newArray)
     console.log(newArray);
   }
 
