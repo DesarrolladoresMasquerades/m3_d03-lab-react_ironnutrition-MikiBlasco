@@ -1,20 +1,19 @@
 import { useState } from "react"
 
-function Search() {
+function Search(props) {
 
-    const [searchedFood, setSearchedFood] = useState({
-        name: "",
-        calories: "",
-        image: "",
-        servings: "",
-    })
+    const [searchedFood, setSearchedFood] = useState("")
+
+    function handleDataChange(event){
+        setSearchedFood(event.target.value) 
+        props.searchFood(event.target.value)
+    }
 
     return(
 
-        <form onSubmit={handleSubmit}>
+        <form>
             <label>Search</label>
-            <input type="text" name="food" value={searchedFood}> </input>
-            <button type="submit">Search Food</button>
+            <input type="text" name="food" value={searchedFood} onChange={handleDataChange}></input>
         </form>
 
     )
