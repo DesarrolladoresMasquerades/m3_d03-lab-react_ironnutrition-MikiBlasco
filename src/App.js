@@ -12,7 +12,7 @@ function App() {
 
   const [items, setItems] = useState (foodsCopy)
   const [itemsDB, setItemsDB] = useState (foodsCopy)
-  const [text, setText] = useState("Hide");
+  const [text, setText] = useState("Show");
 
   function addFood(newItem){
     setItems([...items, newItem])  
@@ -39,9 +39,14 @@ function App() {
 
   function toggleButton(){
     document.getElementById("formSection").classList.toggle('hidden')
-    
-    setText("Show")
 
+    if (text === "Show")  
+    setText("Hide")
+
+    if(text === "Hide")
+    setText("Show")
+      
+      
   }
 
   return (
